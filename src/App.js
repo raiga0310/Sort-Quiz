@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import StartScreen from './components/StartScreen';
 import PlayScreen from './components/PlayScreen';
 import ResultScreen from './components/ResultScreen';
+import './App.css';
 
 function App() {
   const [screen, setScreen] = useState("start"); // 初期状態は "start"
