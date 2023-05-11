@@ -80,6 +80,7 @@
   width: calc(1rem * var(--mul));
   height: calc(1rem * var(--mul));
 
+  color: black;
   background: #a6a6a6;
   border-radius: calc(0.125rem * var(--mul));
 
