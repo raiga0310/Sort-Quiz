@@ -10,12 +10,18 @@ const FlippingCard = ({cardData}) => {
 
   return (
     <div
-      className={`flipping-card ${isFlipped ? 'flipped' : ''}`}
+      className={`flipping-card ${isFlipped ? 'flipped' : ''} frame`}
       onClick={handleClick}
     >
-      <div className="flipping-card-inner">
-        <div className="flipping-card-front">{cardData.front}</div>
-        <div className="flipping-card-back">{cardData.back}</div>
+      <div className="flipping-card-inner container">
+        <div className="flipping-card-front">
+          <span className='title'>{cardData.front}</span>
+          <div className="corner corner-rt">rs</div>
+          <div className="corner corner-ld">rs</div>
+        </div>
+        <div className="flipping-card-back">
+          <span className='title'>{cardData.back}</span>
+        </div>
       </div>
     </div>
   )

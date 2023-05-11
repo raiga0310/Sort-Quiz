@@ -34,5 +34,119 @@
   
   .flipping-card-back {
     transform: rotateY(180deg);
+    direction: rtl;
+    unicode-bidi: bidi-override;
   }
   
+  
+  /* フォントの導入: M PLUS Rounded 1c Black */
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap");
+
+/* 全体のフレーム, カードの基底要素 */
+.frame {
+  /* カードの大きさの倍率 */
+  --mul: 6;
+
+  box-sizing: border-box;
+  width: calc(52px * var(--mul));
+  height: calc(73px * var(--mul));
+  padding: calc(5px * var(--mul));
+
+  background: white;
+  border: solid;
+  overflow: hidden;
+  position: relative;
+
+  font: calc(0.125rem * var(--mul)) "M PLUS Rounded 1c", sans-serif;
+  text-align: center;
+}
+
+/* カード中央本文のコンテナ */
+.container {
+  width: 100%;
+  height: 100%;
+
+  background: #d9d9d9;
+  border-radius: calc(0.25rem * var(--mul));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+/* カード隅の共通スタイル */
+.corner {
+  width: calc(1rem * var(--mul));
+  height: calc(1rem * var(--mul));
+
+  background: #a6a6a6;
+  border-radius: calc(0.125rem * var(--mul));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: absolute;
+}
+
+/* カード隅の拡張子を含んだ要素の共通スタイル */
+.corner > * {
+  font-size: calc(0.25rem * var(--mul));
+  text-align: center;
+
+  position: relative;
+}
+
+/* …本文は拡張子なので ::before で dot を付けている */
+.corner > *::before {
+  content: ".";
+}
+
+/* RightTop, 右上の隅: 要素を隅にめり込ませている */
+.corner-rt {
+  right: calc(-0.25rem * var(--mul));
+  top: calc(-0.25rem * var(--mul));
+}
+
+/* …めり込ませた分拡張子を含む要素をカード内側にずらす */
+.corner-rt > * {
+  right: calc(0.125rem * var(--mul));
+  top: calc(0.125rem * var(--mul));
+}
+
+/* `.corner-rt` と同様 */
+.corner-ld {
+  left: calc(-0.25rem * var(--mul));
+  bottom: calc(-0.25rem * var(--mul));
+}
+
+/* `.corner-rt > *` と同様 */
+.corner-ld > * {
+  left: calc(0.125rem * var(--mul));
+  bottom: calc(0.125rem * var(--mul));
+}
+
+/* タイトル要素: ちょっと文字を大きくして説明文と離している */
+.container .title {
+  font-size: calc(0.25rem * var(--mul));
+  margin: 0 0 calc(0.25rem * var(--mul)) 0;
+}
+
+/* アイコンのコンテナ: 説明文とちょっと離して, 縦幅を制限 */
+.container .icon > img {
+  height: calc(1rem * var(--mul));
+  margin: calc(0.25rem * var(--mul)) 0 0 0;
+}
+
+/* カードがフリップするときのスタイル */
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* カードがフリップするときのアニメーション */
+.frame {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
