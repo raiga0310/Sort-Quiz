@@ -34,9 +34,12 @@
   
   .flipping-card-back {
     transform: rotateY(180deg);
-    direction: rtl;
-    unicode-bidi: bidi-override;
   }
+  
+  .flipping-card-back > * {
+    transform: rotateY(180deg);
+  }
+  
   
   
   /* フォントの導入: M PLUS Rounded 1c Black */
