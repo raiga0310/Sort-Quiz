@@ -84,7 +84,3 @@ export function getLanguageInfo(arr) {
     }
     return result;
 }
-
-//const array = getRandomArray(15);
-//console.log(array);
-//console.log(getLanguageInfo(array));
