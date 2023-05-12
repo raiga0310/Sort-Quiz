@@ -31,6 +31,10 @@
     padding: 10px;
     box-sizing: border-box;
   }
+
+  .flipped .flipping-card-front {
+    display: none;
+  }
   
   .flipping-card-back {
     transform: rotateY(180deg);

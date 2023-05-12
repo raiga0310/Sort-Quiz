@@ -17,7 +17,6 @@ function StartScreen({ onStart }) {
   return (
     <div className="start-screen">
       <h2>Sort Quiz</h2>
-      <p>ほげ</p>
       <form onSubmit={handleStart}>  {/* formタグを追加 */}
         <input
           type="text"
@@ -28,6 +27,11 @@ function StartScreen({ onStart }) {
         />
         <button type="submit" className="button-style">開始</button> {/* type="submit"を追加 */}
       </form>
+      <div class="quote-container">
+        <p class="quote-content">wwww<br />.then().then().then().then()</p>
+        <p class="quote-author">- かわえおじさん(35)</p>
+      </div>
+
     </div>
   );
 }
