@@ -76,7 +76,10 @@ export function getLanguageInfo(arr) {
     for(let i = 0; i < arr.length; i++) {
         if (arr[i] >= 0 && arr[i] < keys.length) {
             let langKey = keys[arr[i]];
-            result.push(languageInfo[langKey]);
+            let year = languageInfo[langKey][0];
+            let description = languageInfo[langKey][1];
+            let langName = languageInfo[langKey][2];
+            result.push([year, description, langName, langKey]);
         }
     }
     return result;
