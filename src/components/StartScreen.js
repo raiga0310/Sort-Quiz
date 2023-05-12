@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../App.css';
 import './StartScreen.css';
+import '../App.css';
 
 function StartScreen({ onStart }) {
   const [name, setName] = useState("");
@@ -27,10 +27,16 @@ function StartScreen({ onStart }) {
         />
         <button type="submit" className="button-style">開始</button> {/* type="submit"を追加 */}
       </form>
-      <div class="quote-container">
-        <p class="quote-content">wwww<br />.then().then().then().then()</p>
-        <p class="quote-author">- かわえおじさん(35)</p>
+      <div className="quote-container" style={{ width: '50%', height: '50%' }}>
+        <p className="quote-content">wwww<br />.then().then().then().then()</p>
+        <p className="quote-author">- かわえおじさん(35)</p>
+        "リポジトリ｢RADWIMPS｣の始まり"
       </div>
+
+      <h2>RADWIMPS</h2>
+      <span>現代のプログラミング言語は並行計算の概念を取り入れているものがほとんどであり, 直列実行にこだわってバグを作り込むくらいであれば並行計算の技術スタックを利用したほうが<strong>確実かつ簡潔である</strong>.</span>
+      <br />
+      <span>RADWIMPS はそのような<u>並行/並列計算に対する関心の向上と記述例を挙げ, 並行性を怖がらずに接すること</u>を目的としたサンドボックスである.</span>
 
     </div>
   );

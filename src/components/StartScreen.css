@@ -1,5 +1,12 @@
  .start-screen {
-    padding: 5%;
+    padding: 10%;
+    text-align: center;
+ }
+
+ .start-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
  }
  .start-screen input {
     width: 100%;
@@ -8,15 +15,31 @@
     border: none;
     border-radius: 5px;
   }
+
+  .start-screen span {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .start-screen span::before {
+    content: "•";
+    color: #39ff14;
+    margin-right: 0.5rem;
+  }
   
   .start-screen .button-style {
-    width: 100%;
+    width: 50%;
+    text-align: center;
   }
   
   /* Quote styles */
 .quote-container {
   width: 80%;
   margin: 2rem auto;
+  font-size: large;
   padding: 1.5rem;
   background-color: #1e1e1e;
   border-radius: 12px;
