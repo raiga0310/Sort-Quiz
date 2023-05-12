@@ -89,8 +89,3 @@ export function getRandomArray(n) {
   }
   return array;
 }
-
-
-//const array = getRandomArray(15);
-//console.log(array);
-//console.log(getLanguageInfo(array));
