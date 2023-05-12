@@ -14,8 +14,8 @@ function StartScreen({ onStart }) {
 
   return (
     <div className="start-screen">
-      <h2>クイズの説明</h2>
-      <p>ここにクイズの説明文を記述します。</p>
+      <h2>Sort Quiz</h2>
+      <p>ほげ</p>
       <input
         type="text"
         placeholder="名前を入力してください"

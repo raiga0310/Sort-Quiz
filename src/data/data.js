@@ -82,18 +82,6 @@ export function getLanguageInfo(arr) {
     return result;
 }
 
-export function getRandomArray(n) {
-  var array = [];
-  while (array.length < n) {
-    var randomNumber = Math.floor(Math.random() * (69 - 5 + 1)) + 5;
-    if (!array.includes(randomNumber)) {
-      array.push(randomNumber);
-    }
-  }
-  return array;
-}
-
-
 //const array = getRandomArray(15);
 //console.log(array);
 //console.log(getLanguageInfo(array));

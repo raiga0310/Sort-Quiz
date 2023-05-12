@@ -6,10 +6,10 @@ import './App.css';
 
 function App() {
   const [screen, setScreen] = useState("start"); // 初期状態は "start"
-  const [playerName, setPlayerName] = useState(""); // プレイヤー名を管理するためのstate
+  const [player, setPlayer] = useState({ name: "", score: undefined }); // プレイヤー名を管理するためのstate
 
   const startQuiz = (name) => {
-    setPlayerName(name); // プレイヤー名を更新
+    setPlayer({name, score: 0.0}); // プレイヤー名を更新
     setScreen("play"); // 画面状態を "play" に更新
   };
 
@@ -19,15 +19,15 @@ function App() {
   };
 
   const resetQuiz = () => {
-    setPlayerName(""); // プレイヤー名をリセット
+    setPlayer({name: "", score: undefined}); // プレイヤー名をリセット
     setScreen("start"); // 画面状態を "start" に更新
   };
 
   return (
     <div className="App">
       {screen === "start" && <StartScreen onStart={startQuiz} />}
-      {screen === "play" && <PlayScreen playerName={playerName} onEnd={endQuiz} />}
-      {screen === "result" && <ResultScreen playerName={playerName} onReset={resetQuiz} />}
+      {screen === "play" && <PlayScreen player={player} onEnd={endQuiz} />}
+      {screen === "result" && <ResultScreen playerName={player.name} onReset={resetQuiz} />}
     </div>
   );
 }

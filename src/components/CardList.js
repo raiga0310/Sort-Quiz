@@ -1,20 +1,23 @@
 import React, {useState} from 'react'
 import SortableCard from './SortableCard'
+import '../data/data';
+import { getLanguageInfo } from '../data/data';
 
-const generateCards = (count) => {
-  const cards = []
-  for (let i = 1; i <= count; i++) {
+const generateCards = (Array) => {
+  const quizes = getLanguageInfo(Array);
+  const cards = [];
+  for (let i = 0; i < quizes.length; i++) {
     cards.push({
-      id: i,
-      front: `表${i}`,
-      back: `裏${i}`,
+      id: i, // もしくは年を入れる
+      front: `${quizes[i][2]}`,
+      back: `裏${quizes[i][1]}`,
     })
   }
   return cards
 }
 
-const CardList = (props) => {
-  const [cards, setCards] = useState(generateCards(props.cardCount))
+const CardList = ({ quizKeyArray }) => {
+  const [cards, setCards] = useState(generateCards(quizKeyArray));
 
   const moveCard = (fromIndex, toIndex) => {
     const newCards = [...cards]

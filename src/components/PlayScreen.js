@@ -1,7 +1,19 @@
 import React from 'react';
 import CardList from './CardList';  // カードリストコンポーネントをインポート
 
-function PlayScreen({ quiz, onAnswer }) {
+
+function getRandomArray(n) {
+  var array = [];
+  while (array.length < n) {
+    var randomNumber = Math.floor(Math.random() * (72 - 5 + 1)) + 5;
+    if (!array.includes(randomNumber)) {
+      array.push(randomNumber);
+    }
+  }
+  return array;
+}
+
+function PlayScreen({ onAnswer }) {
   const handleAnswer = () => {
     // ユーザーの回答を採点する処理
     // ここでは仮に常に正解とする
@@ -9,13 +21,15 @@ function PlayScreen({ quiz, onAnswer }) {
     onAnswer(isCorrect);
   };
 
+  const quizKeyArray = getRandomArray(5);
+
   return (
     <div className="play-screen">
-      <h2>クイズ</h2>
-      <p>{quiz.question}</p>
+      <h2>並び替えクイズ</h2>
+      <p>リリース年の降順に並び替えなさい｡</p>
       { 
       <CardList
-        cards={quiz.cards}
+        quizKeyArray={quizKeyArray}
       /> 
       }
       <button onClick={handleAnswer}>回答</button>
