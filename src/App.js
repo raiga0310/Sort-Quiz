@@ -14,7 +14,7 @@ function App() {
   };
 
   const endQuiz = (score) => {
-    // スコアに基づいてランキングを更新するロジックをここに記述...
+    setPlayer({name: player.name, score: score}); // プレイヤー名とスコアを更新
     setScreen("result"); // 画面状態を "result" に更新
   };
 
@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       {screen === "start" && <StartScreen onStart={startQuiz} />}
       {screen === "play" && <PlayScreen player={player} onEnd={endQuiz} />}
-      {screen === "result" && <ResultScreen playerName={player.name} onReset={resetQuiz} />}
+      {screen === "result" && <ResultScreen player={player} onReset={resetQuiz} />}
     </div>
   );
 }
