@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CardList from './CardList';  // カードリストコンポーネントをインポート
-import { getLanguageInfo } from '../data/data';
+import { getLanguageInfo } from '../../data/data';
 import '../App.css';
 import './PlayScreen.css';
 
