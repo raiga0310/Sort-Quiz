@@ -1,8 +1,8 @@
 import React from 'react';
 
-function ResultScreen({ player, onRestart }) {
+function ResultScreen({ player, onReset }) {
   const handleRestart = () => {
-    onRestart();
+    onReset();
   };
 
   return (
