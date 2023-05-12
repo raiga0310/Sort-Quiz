@@ -1,5 +1,5 @@
 const languageInfo = {
-    //language, year of release, description(in Japanese)
+    //extension:  year of release, description(ja), fullname
     "adb": ["2003", "Androidデバイスと通信するためのコマンドラインツール。デバッグや他の開発目的に利用される", "Android Debug Bridge"],
     "appleScript": ["1993", " AppleのMac OSで使用される自動化スクリプト言語", "AppleScript"],
     "async.py": ["2015", "Pythonの非同期プログラミングの一部。非同期I/Oを効率的に行うために使用される", "Async Python"],
