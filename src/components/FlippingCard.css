@@ -34,6 +34,9 @@
   
   .flipping-card-back {
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .flipping-card-back > * {
@@ -92,6 +95,8 @@
   justify-content: center;
 
   position: absolute;
+
+  font-size: 1vw; /* Adjust this value as needed */
 }
 
 /* カード隅の拡張子を含んだ要素の共通スタイル */

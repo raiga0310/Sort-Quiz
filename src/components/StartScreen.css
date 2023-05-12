@@ -1,0 +1,15 @@
+ .start-screen {
+    padding: 5%;
+ }
+ .start-screen input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .start-screen .button-style {
+    width: 100%;
+  }
+  

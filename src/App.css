@@ -27,10 +27,6 @@ code {
   margin: 16px;
 }
 
-.card-toggle {
-  display: none;
-}
-
 .card-face {
   position: absolute;
   width: 100%;
@@ -60,23 +56,30 @@ code {
   color: #ff4081;
 }
 
-.card-toggle:checked ~ .card-face-front {
-  transform: rotateY(180deg);
-}
-
-.card-toggle:checked ~ .card-face-back {
-  transform: rotateY(0);
-}
-
-/* DraggableCard styles */
-.draggable-card {
-  display: inline-block;
-}
-
 /* CardList styles */
 .card-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+/* Button Style */
+.button-style {
+  color: white;
+  background-color: #a6a6a6;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button-style:hover {
+  background-color: #868686;
 }
