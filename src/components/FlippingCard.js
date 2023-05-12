@@ -16,11 +16,12 @@ const FlippingCard = ({cardData}) => {
       <div className="flipping-card-inner container">
         <div className="flipping-card-front">
           <span className='title'>{cardData.front}</span>
-          <div className="corner corner-rt"><span>rs</span></div>
-          <div className="corner corner-ld"><span>rs</span></div>
+          <div className="corner corner-rt"><span>{cardData.corner}</span></div>
+          <div className="corner corner-ld"><span>{cardData.corner}</span></div>
         </div>
         <div className="flipping-card-back">
-          <span className='title'>{cardData.back}</span>
+          <span className='title'>{cardData.back.title}</span>
+          <span className='description'>{cardData.back.description}</span>
         </div>
       </div>
     </div>
