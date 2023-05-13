@@ -105,14 +105,12 @@ function PlayScreen({ player, onEnd }) {
   };
 
   return (
-    <div className="play-screen">
-      <h2>並び替えクイズ</h2>
-      <p>リリース年の降順に並び替えなさい｡</p>
-      { 
-      <CardList
-        cards={cards} moveCard={moveCard}
-      /> 
-      }
+    <div className="m-4 flex flex-col items-center">
+      <h2 className="text-4xl mb-4">並び替えクイズ</h2>
+      <p className="my-4 bold text-xl">リリース年の降順に並び替えなさい｡</p>
+      <div className="p-2 border rounded-xl">
+        <CardList cards={cards} moveCard={moveCard} />
+      </div>
       <div className='play-screen-buttons'>
         <button onClick={handleRefresh} className="button-style" >Refresh</button>
         <button onClick={handleAnswer} className="button-style" style={{ width: '50%', height: '50%' }}>回答</button><br />
