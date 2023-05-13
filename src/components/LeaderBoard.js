@@ -1,12 +1,7 @@
 import React from "react";
 import "./LeaderBoard.css"
 
-function LeaderBoard({ players, error }) {
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-  // Sort players by score in descending order
-  players.sort((a, b) => b.score - a.score);
+function LeaderBoard({ players, currentPlayer }) {
 
   return (
     <div className="m-4 flex flex-col items-center">
@@ -21,7 +16,7 @@ function LeaderBoard({ players, error }) {
           </thead>
           <tbody>
             {players.map((player, index) => (
-              <tr key={index} className="hover:bg-gray-700">
+              <tr key={index} className={`hover:bg-gray-700 ${player.name === currentPlayer ? 'bg-blue-500' : ''}`}>
                 <td className="px-4 py-2">{player.name}</td>
                 <td className="px-4 py-2">{player.score}</td>
               </tr>
