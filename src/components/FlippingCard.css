@@ -55,7 +55,7 @@
 /* 全体のフレーム, カードの基底要素 */
 .frame {
   /* カードの大きさの倍率 */
-  --mul: 6;
+  --mul: 5;
 
   box-sizing: border-box;
   width: calc(52px * var(--mul));
