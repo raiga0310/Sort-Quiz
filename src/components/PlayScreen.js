@@ -47,8 +47,9 @@ function kendallsTau(arr1, arr2) {
   let concordant = 0;
   let discordant = 0;
   for (let i = 0; i < arr1.length; i++) {
-    for (let j = i+1; j < arr2.length; j++) {
-      let arr1_i = arr1[i], arr1_j = arr1[j];
+    for (let j = i + 1; j < arr1.length; j++) {
+      let arr1_i = arr1[i],
+        arr1_j = arr1[j];
       let arr2_i = arr2.findIndex(val => val === arr1_i);
       let arr2_j = arr2.findIndex(val => val === arr1_j);
       if ((arr2_i - arr2_j) * (i - j) > 0) {
@@ -63,7 +64,11 @@ function kendallsTau(arr1, arr2) {
 
   const tau = Number(((concordant - discordant) / (concordant + discordant)).toFixed(4));
 
-  return tau; 
+  return tau;
+}
+
+function scoreFunction(x) {
+  return 5000 / (1 + Math.exp(-10 * x));
 }
 
 
@@ -95,7 +100,7 @@ function PlayScreen({ player, onEnd }) {
     const tau = kendallsTau(userOrder, correctOrder).toFixed(4);
   
     console.log(tau);
-    onEnd(tau);
+    onEnd(scoreFunction(tau));
   };
   
 
