@@ -99,8 +99,6 @@
   justify-content: center;
 
   position: absolute;
-
-  font-size: 1vw; /* Adjust this value as needed */
 }
 
 /* カード隅の拡張子を含んだ要素の共通スタイル */
@@ -149,6 +147,11 @@
 .container .title {
   font-size: calc(0.25rem * var(--mul));
   margin: 0 0 calc(0.25rem * var(--mul)) 0;
+}
+
+/* --- */
+.container .description {
+  font-size: calc(0.125rem * var(--mul));
 }
 
 /* アイコンのコンテナ: 説明文とちょっと離して, 縦幅を制限 */
