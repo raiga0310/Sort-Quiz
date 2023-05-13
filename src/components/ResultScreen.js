@@ -11,8 +11,7 @@ function ResultScreen({ player, onReset }) {
       <p className="w-fit">
         {player.name}さんのスコアは{" "}
         <span className="text-lg bold">
-          {/* 百分率で飛んできてると思ったので, そのように表示 */}
-          {Math.round(player.score * 100)}
+          {Math.round(player.score)}
         </span>{" "}
         点です。
       </p>
