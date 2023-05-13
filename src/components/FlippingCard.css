@@ -111,6 +111,11 @@
   position: relative;
 }
 
+.flipped .corner > * {
+  transform: rotateY(180deg);
+  transition: transform 0.6s;
+}
+
 /* …本文は拡張子なので ::before で dot を付けている */
 .corner > *::before {
   content: ".";
