@@ -1,19 +1,34 @@
-import React from 'react'
-import SortableCard from './SortableCard'
+import React from "react";
+import { GridStack } from "gridstack";
+import FlippingCard from "./FlippingCard";
 
-const CardList = ({ cards, moveCard }) => {
+import "gridstack/dist/gridstack.min.css";
+
+const WIDTH = 2;
+
+const CardList = ({ cards, setCardIndexes }) => {
+  React.useEffect(() => {
+    const gs = GridStack.init({ disableResize: true, row: 2 })
+
+    gs.on("dragstop", () => {
+      const indexes = gs.getGridItems().map((e) => e.gridstackNode?.x / WIDTH);
+      setCardIndexes(indexes);
+    })
+
+    return () => {
+      gs.destroy(false)
+    }
+  }, [setCardIndexes])
+
   return (
-    <div className="flex flex-row gap-4">
+    <div className="grid-stack">
       {cards.map((card, index) => (
-        <SortableCard
-          key={card.id}
-          cardData={card}
-          index={index}
-          moveCard={moveCard}
-        />
+        <div key={index} index={index} class="grid-stack-item" gs-w={WIDTH}>
+          <FlippingCard cardData={card} />
+        </div>
       ))}
     </div>
   );
-}
+};
 
-export default CardList
+export default CardList;

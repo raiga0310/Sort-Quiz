@@ -84,6 +84,15 @@ function PlayScreen({ player, onEnd }) {
     setCards(newCards)
   }
 
+  const setCardIndexes = (indexes) => {
+    const newCards = [];
+    for (const [from, to] of Object.entries(indexes)) {
+      newCards[to] = cards[from];
+    }
+
+    setCards(newCards)
+  }
+
   const handleAnswer = () => {
     // ユーザーのカードの順序と正解の順序を取得
     const userOrder = cards.map(card => card.id);
@@ -105,11 +114,11 @@ function PlayScreen({ player, onEnd }) {
   };
 
   return (
-    <div className="m-4 flex flex-col items-center">
+    <div className="m-4 text-center">
       <h2 className="text-4xl mb-4">並び替えクイズ</h2>
       <p className="my-4 bold text-xl">リリース年の降順に並び替えなさい｡</p>
       <div className="p-2 border rounded-xl">
-        <CardList cards={cards} moveCard={moveCard} />
+        <CardList cards={cards} setCardIndexes={setCardIndexes} />
       </div>
       <div className='play-screen-buttons'>
         <button onClick={handleRefresh} className="button-style" >Refresh</button>
