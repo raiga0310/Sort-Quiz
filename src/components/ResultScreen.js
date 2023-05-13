@@ -4,7 +4,6 @@ function ResultScreen({ player, onReset }) {
   const handleRestart = () => {
     onReset();
   };
-  
 
   return (
     <div className="h-screen flex flex-col justify-center items-center">
