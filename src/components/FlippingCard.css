@@ -55,7 +55,7 @@
 /* 全体のフレーム, カードの基底要素 */
 .frame {
   /* カードの大きさの倍率 */
-  --mul: 6;
+  --mul: 5;
 
   box-sizing: border-box;
   width: calc(52px * var(--mul));
@@ -99,8 +99,6 @@
   justify-content: center;
 
   position: absolute;
-
-  font-size: 1vw; /* Adjust this value as needed */
 }
 
 /* カード隅の拡張子を含んだ要素の共通スタイル */
@@ -109,6 +107,11 @@
   text-align: center;
 
   position: relative;
+  transition: transform 0.6s;
+}
+
+.flipped .corner > * {
+  transform: rotateY(180deg);
 }
 
 /* …本文は拡張子なので ::before で dot を付けている */
@@ -144,6 +147,11 @@
 .container .title {
   font-size: calc(0.25rem * var(--mul));
   margin: 0 0 calc(0.25rem * var(--mul)) 0;
+}
+
+/* --- */
+.container .description {
+  font-size: calc(0.125rem * var(--mul));
 }
 
 /* アイコンのコンテナ: 説明文とちょっと離して, 縦幅を制限 */
