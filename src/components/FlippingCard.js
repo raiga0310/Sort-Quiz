@@ -23,10 +23,10 @@ const FlippingCard = ({cardData}) => {
           <span>
             {cardData.order}
           </span>
-          <div className="corner corner-rt"><span>{cardData.corner}</span></div>
-          <div className="corner corner-ld"><span>{cardData.corner}</span></div>
         </div>
       </div>
+      <div className="corner corner-rt"><span>{cardData.corner}</span></div>
+      <div className="corner corner-ld"><span>{cardData.corner}</span></div>
     </div>
   )
 }
