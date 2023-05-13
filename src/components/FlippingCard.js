@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import './FlippingCard.css'
 
 const FlippingCard = ({cardData}) => {
-  const [isFlipped, setIsFlipped] = useState(true)
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = () => {
-    setIsFlipped(!isFlipped)
+    setIsFlipped(!isFlipped);
   }
 
   return (
