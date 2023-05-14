@@ -30,8 +30,8 @@ function StartScreen({ onStart }) {
       <div className="quote-container" style={{ width: '50%', height: '50%' }}>
         <p className="quote-content">wwww<br />.then().then().then().then()</p>
         <p className="quote-author">- かわえおじさん(35)</p>
-        "リポジトリ｢RADWIMPS｣の始まり"
       </div>
+      <p className="quote-alt">"リポジトリ｢RADWIMPS｣の始まり"</p>
 
       <h2>RADWIMPS</h2>
       <span>現代のプログラミング言語は並行計算の概念を取り入れているものがほとんどであり, 直列実行にこだわってバグを作り込むくらいであれば並行計算の技術スタックを利用したほうが<strong>確実かつ簡潔である</strong>.</span>

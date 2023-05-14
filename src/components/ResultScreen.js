@@ -1,6 +1,7 @@
 import React from "react";
+import LeaderBoard from "./LeaderBoard"
 
-function ResultScreen({ player, onReset }) {
+function ResultScreen({ player, players, onReset }) {
   const handleRestart = () => {
     onReset();
   };
@@ -16,11 +17,13 @@ function ResultScreen({ player, onReset }) {
         点です。
       </p>
       <button
-        className="w-fit p-6 mt-12 border rounded-lg"
+        className="w-fit p-6 my-12 border rounded-lg"
         onClick={handleRestart}
       >
         もう一度プレイ
       </button>
+      <hr className="w-[75%] border" />
+      <LeaderBoard players={players} />
     </div>
   );
 }
