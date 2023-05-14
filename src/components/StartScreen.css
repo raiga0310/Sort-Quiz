@@ -44,7 +44,6 @@
   background-color: #1e1e1e;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #a8a8a8;
   position: relative;
 }
 
@@ -62,7 +61,7 @@
   font-size: 4rem;
   position: absolute;
   right: 10px;
-  bottom: -10px;
+  bottom: 0;
   color: #ff4081;
 }
 
@@ -76,4 +75,8 @@
   font-size: 1rem;
   text-align: right;
   margin-top: 1.5rem;
+}
+
+.quote-alt {
+  margin-top: 1rem;
 }

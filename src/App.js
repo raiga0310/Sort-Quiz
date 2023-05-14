@@ -37,12 +37,7 @@ function App() {
     <div className="App">
       {screen === "start" && <StartScreen onStart={startQuiz} />}
       {screen === "play" && <PlayScreen player={player} onEnd={endQuiz} />}
-      {screen === "result" && (
-        <>
-          <ResultScreen player={player} onReset={resetQuiz} />
-          <LeaderBoard players={players} currentPlayer={player.name} />
-        </>
-      )}
+      {screen === "result" && <ResultScreen player={player} players={players} onReset={resetQuiz} />}
     </div>
   );
 }

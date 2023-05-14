@@ -14,7 +14,23 @@ function getRandomArray(n) {
   }
   return array;
 }
-const generateCards = (Array) => {
+
+async function fetchRADWIMPSCode(extension) {
+  try {
+    const response = await fetch(`https://raw.githubusercontent.com/approvers/RADWIMPS/master/RADWIMPS.${extension}`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.text();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log('Fetch Error :-S', error);
+    return 'Fetch Error';
+  }
+}
+
+async function generateCards(Array) {
   const quizes = getLanguageInfo(Array);
   const years = quizes.map((quiz) => parseInt(quiz[0]));
   const descriptions = quizes.map((quiz) => quiz[1]);
@@ -29,9 +45,11 @@ const generateCards = (Array) => {
 
   const cards = [];
   for (let i = 0; i < quizes.length; i++) {
+    const code = await fetchRADWIMPSCode(extensions[i]);
+    console.log(code);
     cards.push({
       id: years[i], 
-      front: titles[i],
+      front: code,
       back: {title: titles[i], description: descriptions[i]},
       corner: extensions[i],
       order: correctOrder.indexOf(i),  // カードの正解の順序を追加
@@ -78,8 +96,13 @@ function PlayScreen({ player, onEnd }) {
 
   // quizKeyArrayが変更されたときに新しいカード列を生成
   useEffect(() => {
-    setCards(generateCards(quizKeyArray));
+    const fetchData = async () => {
+      const newCards = await generateCards(quizKeyArray);
+      setCards(newCards);
+    };
+    fetchData();
   }, [quizKeyArray]);
+  
 
   const moveCard = (fromIndex, toIndex) => {
     const newCards = [...cards]
@@ -114,7 +137,7 @@ function PlayScreen({ player, onEnd }) {
       <h2 className="text-4xl mb-4">並び替えクイズ</h2>
       <p className="my-4 bold text-xl">リリース年の降順に並び替えなさい｡</p>
       <div className="p-2 border rounded-xl">
-        <CardList cards={cards} moveCard={moveCard} />
+        <CardList cardsPromise={cards} moveCard={moveCard} />
       </div>
       <div className='play-screen-buttons'>
         <button onClick={handleRefresh} className="button-style" >Refresh</button>
