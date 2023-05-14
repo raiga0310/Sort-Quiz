@@ -132,16 +132,34 @@ function PlayScreen({ player, onEnd }) {
     setQuizKeyArray(getRandomArray(5));
   };
 
+  const [srcs, setSrcs] = React.useState([]);
+
   return (
     <div className="m-4 flex flex-col items-center">
       <h2 className="text-4xl mb-4">並び替えクイズ</h2>
       <p className="my-4 bold text-xl">リリース年の降順に並び替えなさい｡</p>
       <div className="p-2 border rounded-xl">
-        <CardList cardsPromise={cards} moveCard={moveCard} />
+        <CardList cardsPromise={cards} moveCard={moveCard} setSrcs={setSrcs} />
       </div>
-      <div className='play-screen-buttons'>
-        <button onClick={handleRefresh} className="button-style" >Refresh</button>
-        <button onClick={handleAnswer} className="button-style" style={{ width: '50%', height: '50%' }}>回答</button><br />
+      <div className="play-screen-buttons">
+        <button onClick={handleRefresh} className="button-style">
+          Refresh
+        </button>
+        <button
+          onClick={handleAnswer}
+          className="button-style"
+          style={{ width: "50%", height: "50%" }}
+        >
+          回答
+        </button>
+        <br />
+      </div>
+      <div className="mt-8 grid grid-row-2 gap-4">
+        {srcs.map((src) => (
+          <pre className="bg-slate-300 text-slate-900">
+            <code>{src}</code>
+          </pre>
+        ))}
       </div>
     </div>
   );
