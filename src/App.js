@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import StartScreen from './components/StartScreen';
 import PlayScreen from './components/PlayScreen';
 import ResultScreen from './components/ResultScreen';
-import LeaderBoard from './components/LeaderBoard';
 import './App.css';
 
 function App() {
@@ -40,8 +39,7 @@ function App() {
     <div className="App">
       {screen === "start" && <StartScreen onStart={startQuiz} />}
       {screen === "play" && <PlayScreen player={player} onEnd={endQuiz} />}
-      {screen === "result" && <ResultScreen player={player} onReset={resetQuiz} />}
-      {screen === "result" && <LeaderBoard players={players} />}
+      {screen === "result" && <ResultScreen player={player} players={players} onReset={resetQuiz} />}
     </div>
   );
 }

@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #121212;
-  color: #a8a8a8;
+  color: #fff;
 }
 
 code {
@@ -66,8 +66,8 @@ code {
 
 /* Button Style */
 .button-style {
-  color: white;
-  background-color: #a6a6a6;
+  color: #000;
+  background-color: #d0d0d0;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -78,6 +78,10 @@ code {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+}
+
+.button-style::placeholder {
+  color: #00000088;
 }
 
 .button-style:hover {
