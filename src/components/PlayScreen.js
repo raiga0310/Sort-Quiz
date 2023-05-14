@@ -15,23 +15,19 @@ function getRandomArray(n) {
   return array;
 }
 
-function fetchRADWIMPSCode(extension) {
-  const url = `https://raw.githubusercontent.com/approvers/RADWIMPS/master/RADWIMPS.${extension}`;
-  console.log(url);
-  fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("HTTP error " + response.status);
-        }
-        return response.text();
-    })
-    .then(data => {
-        return data;
-    })
-    .catch(function(error) {
-        console.log('Fetch Error :-S', error);
-        return 'Fetch Error';
-    });
+async function fetchRADWIMPSCode(extension) {
+  try {
+    const response = await fetch(`https://raw.githubusercontent.com/approvers/RADWIMPS/master/RADWIMPS.${extension}`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.text();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log('Fetch Error :-S', error);
+    return 'Fetch Error';
+  }
 }
 
 async function generateCards(Array) {
