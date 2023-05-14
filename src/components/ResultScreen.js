@@ -1,6 +1,7 @@
 import React from "react";
+import LeaderBoard from "./LeaderBoard"
 
-function ResultScreen({ player, onReset }) {
+function ResultScreen({ player, players, onReset }) {
   const handleRestart = () => {
     onReset();
   };
@@ -21,6 +22,7 @@ function ResultScreen({ player, onReset }) {
       >
         もう一度プレイ
       </button>
+      <LeaderBoard players={players} />
     </div>
   );
 }
