@@ -1,33 +1,43 @@
-import React, { useState } from 'react';
-import StartScreen from './components/StartScreen';
-import PlayScreen from './components/PlayScreen';
-import ResultScreen from './components/ResultScreen';
+import React, { useState, useEffect } from "react";
+import StartScreen from "./components/StartScreen";
+import PlayScreen from "./components/PlayScreen";
+import ResultScreen from"./components/ResultScreen";
+import LeaderBoard from "./components/LeaderBoard";
 import './App.css';
 
 function App() {
-  const [screen, setScreen] = useState("start"); // 初期状態は "start"
-  const [playerName, setPlayerName] = useState(""); // プレイヤー名を管理するためのstate
+  const [screen, setScreen] = useState("start");
+  const [player, setPlayer] = useState({ name: "", score: undefined });
+  const [players, setPlayers] = useState([]);
+
+  useEffect(() => {
+    const savedPlayers = JSON.parse(localStorage.getItem("players")) || [];
+    setPlayers(savedPlayers);
+  }, []);
 
   const startQuiz = (name) => {
-    setPlayerName(name); // プレイヤー名を更新
-    setScreen("play"); // 画面状態を "play" に更新
+    setPlayer({ name, score: 0.0 });
+    setScreen("play");
   };
 
   const endQuiz = (score) => {
-    // スコアに基づいてランキングを更新するロジックをここに記述...
-    setScreen("result"); // 画面状態を "result" に更新
+    const newPlayer = { ...player, score };
+    const newPlayers = [...players, newPlayer].sort((a, b) => b.score - a.score);
+    setPlayers(newPlayers);
+    localStorage.setItem("players", JSON.stringify(newPlayers));
+    setScreen("result");
   };
 
   const resetQuiz = () => {
-    setPlayerName(""); // プレイヤー名をリセット
-    setScreen("start"); // 画面状態を "start" に更新
+    setPlayer({ name: "", score: undefined });
+    setScreen("start");
   };
 
   return (
     <div className="App">
       {screen === "start" && <StartScreen onStart={startQuiz} />}
-      {screen === "play" && <PlayScreen playerName={playerName} onEnd={endQuiz} />}
-      {screen === "result" && <ResultScreen playerName={playerName} onReset={resetQuiz} />}
+      {screen === "play" && <PlayScreen player={player} onEnd={endQuiz} />}
+      {screen === "result" && <ResultScreen player={player} players={players} onReset={resetQuiz} />}
     </div>
   );
 }

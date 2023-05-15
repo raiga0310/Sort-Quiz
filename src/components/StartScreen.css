@@ -1,0 +1,82 @@
+ .start-screen {
+    padding: 10%;
+    text-align: center;
+ }
+
+ .start-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+ }
+ .start-screen input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .start-screen span {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .start-screen span::before {
+    content: "•";
+    color: #39ff14;
+    margin-right: 0.5rem;
+  }
+  
+  .start-screen .button-style {
+    width: 50%;
+    text-align: center;
+  }
+  
+  /* Quote styles */
+.quote-container {
+  width: 80%;
+  margin: 2rem auto;
+  font-size: large;
+  padding: 1.5rem;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.quote-container::before {
+  content: "“";
+  font-size: 4rem;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  color: #39ff14;
+}
+
+.quote-container::after {
+  content: "”";
+  font-size: 4rem;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  color: #ff4081;
+}
+
+.quote-content {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.quote-author {
+  font-size: 1rem;
+  text-align: right;
+  margin-top: 1.5rem;
+}
+
+.quote-alt {
+  margin-top: 1rem;
+}

@@ -1,0 +1,9 @@
+.play-screen-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flipping-card {
+  color: #000;
+}

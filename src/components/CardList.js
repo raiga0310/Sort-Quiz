@@ -1,31 +1,27 @@
-import React, {useState} from 'react'
-import SortableCard from './SortableCard'
+import React, { useState, useEffect } from 'react';
+import SortableCard from './SortableCard';
 
-const generateCards = (count) => {
-  const cards = []
-  for (let i = 1; i <= count; i++) {
-    cards.push({
-      id: i,
-      front: `表${i}`,
-      back: `裏${i}`,
-    })
-  }
-  return cards
-}
+const CardList = ({ cardsPromise, moveCard, setSrcs }) => {
+  const [cards, setCards] = useState([]);
 
-const CardList = (props) => {
-  const [cards, setCards] = useState(generateCards(props.cardCount))
+  useEffect(() => {
+    const loadCards = async () => {
+      const cardsData = await cardsPromise;
+      console.log(cardsData);
+      setCards(cardsData);
+      setSrcs(cardsData.map(({ front }) => front));
+      console.log('setCards called');
+    }
 
-  const moveCard = (fromIndex, toIndex) => {
-    const newCards = [...cards]
-    const cardToMove = newCards[fromIndex]
-    newCards.splice(fromIndex, 1)
-    newCards.splice(toIndex, 0, cardToMove)
-    setCards(newCards)
+    loadCards();
+  }, [cardsPromise, setSrcs]);
+
+  if (!cards || cards.length === 0) {
+    return <p>Loading...</p>;
   }
 
   return (
-    <div className="card-list">
+    <div className="flex flex-row gap-4">
       {cards.map((card, index) => (
         <SortableCard
           key={card.id}
@@ -35,7 +31,7 @@ const CardList = (props) => {
         />
       ))}
     </div>
-  )
+  );
 }
 
-export default CardList
+export default CardList;
