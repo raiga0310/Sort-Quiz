@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SortableCard from './SortableCard';
 
-const CardList = ({ cardsPromise, moveCard }) => {
+const CardList = ({ cardsPromise, moveCard, setSrcs }) => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -9,11 +9,12 @@ const CardList = ({ cardsPromise, moveCard }) => {
       const cardsData = await cardsPromise;
       console.log(cardsData);
       setCards(cardsData);
+      setSrcs(cardsData.map(({ front }) => front));
       console.log('setCards called');
     }
 
     loadCards();
-  }, [cardsPromise]);
+  }, [cardsPromise, setSrcs]);
 
   if (!cards || cards.length === 0) {
     return <p>Loading...</p>;

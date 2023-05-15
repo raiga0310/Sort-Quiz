@@ -15,7 +15,7 @@ const FlippingCard = ({cardData}) => {
     >
       <div className="flipping-card-inner container">
         <div className="flipping-card-front">
-          <span className='title'>{cardData.front}</span>
+          <span className='title'>{cardData.back.title}</span>
         </div>
         <div className="flipping-card-back">
           <span className='title'>{cardData.back.title}</span>
